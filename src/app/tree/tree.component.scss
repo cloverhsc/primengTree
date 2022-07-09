@@ -1,0 +1,17 @@
+.tree-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 600px;
+}
+
+%icon-size {
+  width: 16px;
+  height: 16px;
+}
+
+:host ::ng-deep {
+  .p-treenode-label {
+    width: 100%;
+  }
+
+}

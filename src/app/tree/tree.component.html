@@ -1,1 +1,19 @@
-<p>tree works!</p>
+<div class="tree-wrapper">
+  <p-tree
+    *ngIf="treeData.length; else elseEmptyTree"
+    [value]="treeData"
+    [loading]="onLoading"
+    selectionMode="single"
+    (onNodeSelect)="nodeSelect($event)"
+    [(selection)]="selectedFile"
+  >
+    <ng-template let-node pTemplate="default">
+      <div class="clover">
+        <h4>Clover</h4>
+      </div>
+    </ng-template>
+  </p-tree>
+  <ng-template #elseEmptyTree>
+    <h3>No Tree Data Obtained</h3>
+  </ng-template>
+</div>
