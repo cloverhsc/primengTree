@@ -1,7 +1,6 @@
 import { TreeService } from './service/tree.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { TreeNode } from 'primeng/api';
-import { TreeNodeType } from '../msw_handler/tree-mock-data';
 
 @Component({
   selector: 'app-tree',
@@ -16,17 +15,44 @@ export class TreeComponent implements OnInit {
   constructor(private treeServ: TreeService) {}
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.treeServ
+        .fetchLazyTreeData()
+        .subscribe((data: { data: TreeNode[] }) => {
+          this.treeData = data.data;
+          this.onLoading = false;
+        });
+    }, 0);
+  }
+
+  fetchFullTree() {
     this.treeServ.fetchTreeData().subscribe((data: { data: TreeNode[] }) => {
       this.onLoading = false;
       this.treeData = data.data;
     });
   }
-  nodeSelect(event: any) {
-    this.selectedFile = event.node;
-    console.log(this.selectedFile);
+
+  fetchLazyTree(event: any) {
+    this.treeServ
+      .fetchLazyTreeData()
+      .subscribe((data: { data: TreeNode[] }) => {
+        this.onLoading = false;
+        event.node.children = data.data;
+      });
   }
 
-  toggleItem(currentNode: TreeNode) {
-    currentNode.expanded = !currentNode.expanded;
+  toggleItem(currentNode: any) {
+    // currentNode.expanded = !currentNode.expanded;
+    console.log(currentNode);
+    // currentNode.expanded ? this.fetchLazyTree(currentNode) : null;
+  }
+
+  /**
+   * Lazy loading children of the node. Trigger api to get the children
+   * tree data then render the children nodes.
+   * @param event :
+   */
+  nodeExpand(event: any) {
+    this.fetchLazyTree(event);
   }
 }

@@ -4,12 +4,22 @@
     [value]="treeData"
     [loading]="onLoading"
     selectionMode="single"
-    (onNodeSelect)="nodeSelect($event)"
     [(selection)]="selectedFile"
+    (onNodeExpand)="nodeExpand($event)"
   >
     <ng-template let-node pTemplate="default">
-      <div class="clover">
-        <h4>Clover</h4>
+      <div class="tree-item" [id]="node.data.ui_id">
+        <!-- <span
+          class="tree-icon arrowIcon"
+          (click)="toggleItem(node)"
+          [ngClass]="{
+            'icon-rotate': !node.expanded,
+            'system-space': node.leaf
+          }"
+        >
+          <img src="assets/TreeIcons/ArrowDown.svg" *ngIf="!node?.leaf" />
+        </span> -->
+        <span>Clover</span>
       </div>
     </ng-template>
   </p-tree>

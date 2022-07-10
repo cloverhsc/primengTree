@@ -10,8 +10,25 @@
 }
 
 :host ::ng-deep {
-  .p-treenode-label {
-    width: 100%;
+  ul {
+    li {
+      list-style-type: none;
+    }
+    padding-left: 10px;
   }
 
+  .icon-rotate {
+    img {
+      transform: rotate(-90deg);
+      transition: all 0.3s;
+    }
+  }
+
+  // PrimeNG Tree Arrow button
+  span.pi-chevron-right:before {
+    content: '';
+    background-image: url('/src/assets/TreeIcons/ArrowDown.svg');
+    width: 16px;
+    height: 16px;
+  }
 }

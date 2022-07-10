@@ -11,4 +11,8 @@ export class TreeService {
   fetchTreeData() {
     return this.http.get<{ data: TreeNode[] }>('/api/tree');
   }
+
+  fetchLazyTreeData() {
+    return this.http.get<{ data: TreeNode[] }>('/api/lazy/tree');
+  }
 }
