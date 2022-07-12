@@ -26,9 +26,19 @@
 
   // PrimeNG Tree Arrow button
   span.pi-chevron-right:before {
-    content: '';
-    background-image: url('/src/assets/TreeIcons/ArrowDown.svg');
+    content: url('/assets/TreeIcons/ArrowDown.svg');
+    display: inline-block;
     width: 16px;
     height: 16px;
+    transform: rotate(-90deg);
+    transition: all 0.3s;
+  }
+
+  span.pi-chevron-down:before {
+    content: url('/assets/TreeIcons/ArrowDown.svg');
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s;
   }
 }

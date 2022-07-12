@@ -33,6 +33,7 @@ export class TreeComponent implements OnInit {
   }
 
   fetchLazyTree(event: any) {
+    console.log(event);
     this.treeServ
       .fetchLazyTreeData()
       .subscribe((data: { data: TreeNode[] }) => {
@@ -42,8 +43,7 @@ export class TreeComponent implements OnInit {
   }
 
   toggleItem(currentNode: any) {
-    // currentNode.expanded = !currentNode.expanded;
-    console.log(currentNode);
+    // currentNode.expanded  !currentNode.expanded;
     // currentNode.expanded ? this.fetchLazyTree(currentNode) : null;
   }
 
