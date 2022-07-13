@@ -1,7 +1,7 @@
 .tree-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 600px;
+  width: 240px;
+  height: 1016px;
+  box-shadow: 0px 2px 4px #00000029;
 }
 
 %icon-size {
@@ -24,21 +24,58 @@
     }
   }
 
-  // PrimeNG Tree Arrow button
+  // PrimeNG Tree View expand/collapse Arrow button
+  button.p-tree-toggler {
+    border: 0px;
+    background: none;
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+  }
+
+  // Tree view Row items
+  .tree-item {
+    display: inline-flex;
+    height: 32px;
+  }
+
+  span.p-tree-toggler-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  // PrimeNG Tree Collapse Arrow ICON
   span.pi-chevron-right:before {
     content: url('/assets/TreeIcons/ArrowDown.svg');
-    display: inline-block;
+    display: inline-flex;
     width: 16px;
     height: 16px;
     transform: rotate(-90deg);
     transition: all 0.3s;
   }
 
+  // PrimeNG Tree Expande Arrow ICON
   span.pi-chevron-down:before {
     content: url('/assets/TreeIcons/ArrowDown.svg');
-    display: inline-block;
+    display: inline-flex;
     width: 16px;
     height: 16px;
     transition: all 0.3s;
+  }
+
+  .tree-icon {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 8px;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .text-content {
+    height: 18px;
+    padding: 7px 0px;
+    font-size: 12px;
   }
 }

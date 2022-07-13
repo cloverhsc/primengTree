@@ -9,17 +9,10 @@
   >
     <ng-template let-node pTemplate="default">
       <div class="tree-item" [id]="node.data.ui_id">
-        <!-- <span
-          class="tree-icon arrowIcon"
-          (click)="toggleItem(node)"
-          [ngClass]="{
-            'icon-rotate': !node.expanded,
-            'system-space': node.leaf
-          }"
-        >
-          <img src="assets/TreeIcons/ArrowDown.svg" *ngIf="!node?.leaf" />
-        </span> -->
-        <span>Clover</span>
+        <span class="tree-icon type">
+          <img src="assets/TreeIcons/folders.png" alt="" />
+        </span>
+        <span class="text-content">Clover</span>
       </div>
     </ng-template>
   </p-tree>

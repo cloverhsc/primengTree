@@ -53,6 +53,6 @@ export class TreeComponent implements OnInit {
    * @param event :
    */
   nodeExpand(event: any) {
-    this.fetchLazyTree(event);
+    event.node.children ? null : this.fetchLazyTree(event);
   }
 }
